@@ -1139,33 +1139,61 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--spacing-md);
+        height: 70px;
+    }
+
+    .navbar {
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(25px);
+    }
+
+    .nav-logo {
+        font-size: var(--font-size-lg);
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 70px;
         flex-direction: column;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(25px);
         width: 100%;
+        height: calc(100vh - 70px);
         text-align: center;
         transition: var(--transition-normal);
         border-top: 1px solid var(--glass-border);
-        padding: var(--spacing-xl) 0;
-        gap: var(--spacing-lg);
+        padding: var(--spacing-2xl) 0;
+        gap: var(--spacing-xl);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
         left: 0;
     }
 
+    .nav-link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .nav-auth {
         flex-direction: column;
         width: 100%;
-        gap: var(--spacing-md);
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
     }
 
     .nav-auth button {
-        width: 200px;
+        width: 250px;
+        margin: 0 auto;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: var(--font-size-lg);
     }
 
     .nav-toggle {
@@ -1184,64 +1212,302 @@ section {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Hero Section Mobile */
+    .hero {
+        min-height: 100vh;
+        padding: 70px var(--spacing-md) var(--spacing-xl);
+    }
+
+    .hero-container {
+        padding: 0;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
+        gap: var(--spacing-3xl);
         text-align: center;
+        min-height: auto;
     }
 
     .hero-title {
         font-size: var(--font-size-4xl);
+        line-height: 1.2;
+        margin-bottom: var(--spacing-xl);
     }
 
     .hero-subtitle {
         font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-2xl);
+        padding: 0 var(--spacing-md);
     }
 
     .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+        width: 100%;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: var(--font-size-lg);
         justify-content: center;
     }
 
     .hero-visual {
-        height: 300px;
+        height: 250px;
+        margin-top: var(--spacing-xl);
     }
 
     .floating-card {
-        padding: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-lg);
         font-size: var(--font-size-sm);
+        min-width: 80px;
     }
 
+    .floating-card i {
+        font-size: 1.2rem;
+    }
+
+    /* Better mobile positioning for floating cards */
+    .card-1 {
+        top: 15%;
+        left: 5%;
+    }
+
+    .card-2 {
+        top: 5%;
+        right: 15%;
+    }
+
+    .card-3 {
+        bottom: 35%;
+        left: 15%;
+    }
+
+    .card-4 {
+        bottom: 15%;
+        right: 5%;
+    }
+
+    /* Section styling mobile */
+    section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .section-header {
+        margin-bottom: var(--spacing-2xl);
+        text-align: center;
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .section-header p {
+        font-size: var(--font-size-lg);
+        padding: 0 var(--spacing-md);
+    }
+
+    /* About section mobile */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .about-card {
+        padding: var(--spacing-xl);
+        margin: 0 var(--spacing-sm);
+    }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    /* Hackathons mobile */
+    .hackathon-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .hackathon-card {
+        padding: var(--spacing-xl);
+        margin: 0 var(--spacing-sm);
+    }
+
+    .hackathon-header h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .hackathon-badge {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    /* Projects mobile */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .project-card {
+        margin: 0 var(--spacing-sm);
+    }
+
+    .project-image {
+        height: 180px;
+        font-size: 2.5rem;
+    }
+
+    .project-content {
+        padding: var(--spacing-lg);
+    }
+
+    .project-tags {
+        gap: var(--spacing-xs);
+    }
+
+    .tag {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    /* Contact mobile */
     .contact-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
     }
 
+    .contact-info {
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .contact-item {
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+        background: var(--glass-bg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--glass-border);
+    }
+
+    .contact-item i {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .contact-form {
+        padding: var(--spacing-xl);
+        margin: 0 var(--spacing-sm);
+    }
+
+    /* Form improvements */
     .form-row {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+
+    .form-group label {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Modal improvements */
     .modal-content {
-        margin: 10% auto;
+        margin: 5% auto;
         width: 95%;
+        max-width: 400px;
     }
 
-    .section-header h2 {
-        font-size: var(--font-size-3xl);
+    .modal-header {
+        padding: var(--spacing-lg) var(--spacing-lg) 0;
     }
 
-    .about-grid,
-    .hackathon-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .modal-header h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .auth-form,
+    .hackathon-reg-form {
+        padding: 0 var(--spacing-lg) var(--spacing-lg);
+    }
+
+    .wide-modal {
+        max-width: 95%;
+    }
+
+    /* Footer mobile */
+    .footer {
+        padding: var(--spacing-2xl) 0 var(--spacing-lg);
     }
 
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: var(--spacing-xl);
+    }
+
+    .footer-section {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .social-links {
+        justify-content: center;
     }
 
     .newsletter-form {
         flex-direction: column;
+        gap: var(--spacing-md);
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+
+    /* Button improvements */
+    .btn-hackathon {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+        margin-top: var(--spacing-xl);
+    }
+
+    .btn-auth {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+    }
+
+    .btn-google {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+    }
+
+    .btn-primary {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-lg);
     }
 }
 
