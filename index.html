@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaypee Innovation Hub - Empowering Future Innovators</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Jaypee Innovation Hub</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#hackathons" class="nav-link">Hackathons</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <button class="btn-secondary" onclick="showLogin()">Login</button>
+                    <button class="btn-primary" onclick="showSignup()">Sign Up</button>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Innovate.</span>
+                        <span class="gradient-text">Create.</span>
+                        <span class="gradient-text">Transform.</span>
+                    </h1>
+                    <p class="hero-subtitle">Join Jaypee's premier innovation ecosystem where brilliant minds collaborate to build the future through cutting-edge technology and groundbreaking ideas.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-hero-primary" onclick="showSignup()">
+                            <i class="fas fa-rocket"></i>
+                            Start Your Journey
+                        </button>
+                        <button class="btn-hero-secondary" onclick="scrollToSection('hackathons')">
+                            <i class="fas fa-trophy"></i>
+                            Join Hackathon
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-code"></i>
+                        <span>Code</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Innovate</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-users"></i>
+                        <span>Collaborate</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-trophy"></i>
+                        <span>Win</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Innovation Hub</h2>
+                <p>Empowering students to transform ideas into reality</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Innovation First</h3>
+                    <p>We foster a culture of innovation where creative thinking meets practical implementation.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Connect with like-minded innovators and build amazing projects together.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning</h3>
+                    <p>Continuous learning through workshops, mentorship, and hands-on experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hackathons Section -->
+    <section id="hackathons" class="hackathons">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Hackathons</h2>
+                <p>Join exciting coding competitions and showcase your skills</p>
+            </div>
+            <div class="hackathon-grid">
+                <div class="hackathon-card featured">
+                    <div class="hackathon-badge">Featured</div>
+                    <div class="hackathon-header">
+                        <h3>TechFest 2024</h3>
+                        <div class="hackathon-date">
+                            <i class="fas fa-calendar"></i>
+                            March 15-17, 2024
+                        </div>
+                    </div>
+                    <div class="hackathon-details">
+                        <p>48-hour coding marathon focusing on AI/ML, Web3, and IoT solutions</p>
+                        <div class="hackathon-prizes">
+                            <div class="prize">
+                                <i class="fas fa-trophy"></i>
+                                ₹1,00,000 Prize Pool
+                            </div>
+                        </div>
+                        <div class="hackathon-participants">
+                            <span>500+ Participants Expected</span>
+                        </div>
+                    </div>
+                    <button class="btn-hackathon" onclick="showHackathonRegister('techfest2024')">
+                        Register Now
+                    </button>
+                </div>
+                <div class="hackathon-card">
+                    <div class="hackathon-header">
+                        <h3>StartupWeekend</h3>
+                        <div class="hackathon-date">
+                            <i class="fas fa-calendar"></i>
+                            April 20-22, 2024
+                        </div>
+                    </div>
+                    <div class="hackathon-details">
+                        <p>Turn your startup idea into reality with mentorship and funding opportunities</p>
+                        <div class="hackathon-prizes">
+                            <div class="prize">
+                                <i class="fas fa-handshake"></i>
+                                Funding Opportunities
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-hackathon" onclick="showHackathonRegister('startup2024')">
+                        Register Now
+                    </button>
+                </div>
+                <div class="hackathon-card">
+                    <div class="hackathon-header">
+                        <h3>GreenTech Challenge</h3>
+                        <div class="hackathon-date">
+                            <i class="fas fa-calendar"></i>
+                            May 10-12, 2024
+                        </div>
+                    </div>
+                    <div class="hackathon-details">
+                        <p>Build sustainable solutions for environmental challenges</p>
+                        <div class="hackathon-prizes">
+                            <div class="prize">
+                                <i class="fas fa-leaf"></i>
+                                Sustainability Awards
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-hackathon" onclick="showHackathonRegister('greentech2024')">
+                        Register Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Student Projects</h2>
+                <p>Discover amazing projects built by our community</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Teaching Assistant</h3>
+                        <p>An intelligent chatbot that helps students with their queries using natural language processing.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                        <div class="project-author">
+                            <span>By Team Alpha</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Campus Connect</h3>
+                        <p>A mobile app connecting students for collaboration, events, and academic support.</p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <div class="project-author">
+                            <span>By Team Beta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Agriculture</h3>
+                        <p>IoT-based solution for monitoring crop health and optimizing irrigation systems.</p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Arduino</span>
+                            <span class="tag">Cloud</span>
+                        </div>
+                        <div class="project-author">
+                            <span>By Team Gamma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your innovation journey?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Jaypee Institute of Information Technology<br>A-10, Sector-62, Noida, UP</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>innovation@jiit.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 120 2594000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact-message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Jaypee Innovation Hub</span>
+                    </div>
+                    <p>Empowering the next generation of innovators and entrepreneurs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#hackathons">Hackathons</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with latest events and opportunities</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jaypee Innovation Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            </div>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-auth">Sign In</button>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button type="button" class="btn-google">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join Innovation Hub</h2>
+                <span class="close" onclick="closeModal('signup-modal')">&times;</span>
+            </div>
+            <form id="signup-form" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-firstname">First Name</label>
+                        <input type="text" id="signup-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-course">Course/Branch</label>
+                    <select id="signup-course" required>
+                        <option value="">Select your course</option>
+                        <option value="cse">Computer Science Engineering</option>
+                        <option value="ece">Electronics & Communication</option>
+                        <option value="it">Information Technology</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="civil">Civil Engineering</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signup-year">Year of Study</label>
+                    <select id="signup-year" required>
+                        <option value="">Select year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="accept-terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms & Conditions</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn-auth">Create Account</button>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button type="button" class="btn-google">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" onclick="switchToLogin()">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hackathon Registration Modal -->
+    <div id="hackathon-modal" class="modal">
+        <div class="modal-content wide-modal">
+            <div class="modal-header">
+                <h2 id="hackathon-title">Register for Hackathon</h2>
+                <span class="close" onclick="closeModal('hackathon-modal')">&times;</span>
+            </div>
+            <form id="hackathon-form" class="hackathon-reg-form">
+                <div class="form-section">
+                    <h3>Team Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="team-name">Team Name</label>
+                            <input type="text" id="team-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Team Size</label>
+                            <select id="team-size" required>
+                                <option value="">Select size</option>
+                                <option value="1">Solo (1 member)</option>
+                                <option value="2">2 members</option>
+                                <option value="3">3 members</option>
+                                <option value="4">4 members</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Team Leader Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-name">Full Name</label>
+                            <input type="text" id="leader-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-email">Email</label>
+                            <input type="email" id="leader-email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-phone">Phone Number</label>
+                            <input type="tel" id="leader-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-course">Course/Branch</label>
+                            <input type="text" id="leader-course" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Project Idea</h3>
+                    <div class="form-group">
+                        <label for="project-title">Project Title</label>
+                        <input type="text" id="project-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Project Description</label>
+                        <textarea id="project-description" rows="4" placeholder="Briefly describe your project idea..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tech-stack">Technologies You Plan to Use</label>
+                        <input type="text" id="tech-stack" placeholder="e.g., React, Node.js, Python, AI/ML..." required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="hackathon-terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the hackathon rules and regulations
+                    </label>
+                </div>
+                <button type="submit" class="btn-auth">Register Team</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
