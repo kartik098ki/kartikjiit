@@ -1139,6 +1139,17 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Root font size adjustment for better mobile scaling */
+    html {
+        font-size: 16px;
+    }
+
+    /* Improve touch targets */
+    button, a, input, select, textarea {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
     .nav-container {
         padding: 0 var(--spacing-md);
         height: 70px;
@@ -1147,6 +1158,7 @@ section {
     .navbar {
         background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(25px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     }
 
     .nav-logo {
@@ -1291,6 +1303,40 @@ section {
     .card-4 {
         bottom: 15%;
         right: 5%;
+    }
+
+    /* Optimize background orbs for mobile */
+    .gradient-orb {
+        filter: blur(60px);
+        opacity: 0.2;
+    }
+
+    .orb-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .orb-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .orb-3 {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Reduce animation complexity on mobile for better performance */
+    .floating-card {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    /* Simplify complex animations */
+    @media (prefers-reduced-motion: reduce) {
+        .floating-card,
+        .gradient-orb {
+            animation: none;
+        }
     }
 
     /* Section styling mobile */
@@ -1512,36 +1558,439 @@ section {
 }
 
 @media (max-width: 480px) {
+    /* Container and spacing adjustments */
     .container {
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--spacing-sm);
     }
 
     .nav-container {
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+        height: 60px;
+    }
+
+    .navbar {
+        background: rgba(10, 10, 10, 0.99);
+    }
+
+    .nav-logo {
+        font-size: var(--font-size-base);
+    }
+
+    .nav-logo span {
+        display: none;
+    }
+
+    .nav-logo::after {
+        content: "JIH";
+        font-weight: 700;
+        margin-left: var(--spacing-xs);
+    }
+
+    .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+        padding: var(--spacing-xl) 0;
+    }
+
+    .nav-link {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-lg) 0;
+        width: 90%;
+    }
+
+    .nav-auth button {
+        width: 220px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+
+    /* Hero section improvements */
+    .hero {
+        min-height: 100vh;
+        padding: 60px var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .hero-content {
+        gap: var(--spacing-2xl);
     }
 
     .hero-title {
         font-size: var(--font-size-3xl);
+        line-height: 1.1;
+        margin-bottom: var(--spacing-lg);
     }
 
-    .btn-hero-primary,
-    .btn-hero-secondary {
-        padding: var(--spacing-md) var(--spacing-lg);
+    .hero-subtitle {
         font-size: var(--font-size-base);
-        width: 100%;
+        padding: 0;
+        margin-bottom: var(--spacing-xl);
     }
 
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: var(--spacing-md);
+        width: 100%;
     }
 
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        max-width: 280px;
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-lg);
+    }
+
+    .hero-visual {
+        height: 200px;
+        margin-top: var(--spacing-lg);
+    }
+
+    .floating-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-xs);
+        min-width: 60px;
+        border-radius: var(--radius-md);
+    }
+
+    .floating-card i {
+        font-size: 1rem;
+    }
+
+    /* Section improvements */
     section {
-        padding: var(--spacing-2xl) 0;
+        padding: var(--spacing-xl) var(--spacing-sm);
     }
 
+    .section-header {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .section-header p {
+        font-size: var(--font-size-base);
+        padding: 0;
+    }
+
+    /* About section */
+    .about-grid {
+        gap: var(--spacing-lg);
+    }
+
+    .about-card {
+        padding: var(--spacing-lg);
+        margin: 0;
+        border-radius: var(--radius-lg);
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .about-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .about-card p {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Hackathons section */
+    .hackathon-grid {
+        gap: var(--spacing-lg);
+    }
+
+    .hackathon-card {
+        padding: var(--spacing-lg);
+        margin: 0;
+        border-radius: var(--radius-lg);
+    }
+
+    .hackathon-header h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .hackathon-date {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .hackathon-details p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .hackathon-badge {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        padding: 2px var(--spacing-xs);
+        font-size: 10px;
+    }
+
+    .prize {
+        font-size: var(--font-size-sm);
+    }
+
+    .hackathon-participants {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Projects section */
+    .projects-grid {
+        gap: var(--spacing-lg);
+    }
+
+    .project-card {
+        margin: 0;
+        border-radius: var(--radius-lg);
+    }
+
+    .project-image {
+        height: 150px;
+        font-size: 2rem;
+    }
+
+    .project-content {
+        padding: var(--spacing-md);
+    }
+
+    .project-content h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .project-content p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .project-tags {
+        gap: 4px;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .tag {
+        padding: 2px var(--spacing-xs);
+        font-size: 10px;
+        border-radius: 4px;
+    }
+
+    .project-author {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Contact section */
+    .contact-content {
+        gap: var(--spacing-xl);
+    }
+
+    .contact-info {
+        gap: var(--spacing-md);
+    }
+
+    .contact-item {
+        padding: var(--spacing-md);
+        gap: var(--spacing-sm);
+        border-radius: var(--radius-md);
+    }
+
+    .contact-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .contact-item h4 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .contact-item p {
+        font-size: var(--font-size-sm);
+    }
+
+    .contact-form {
+        padding: var(--spacing-lg);
+        margin: 0;
+        border-radius: var(--radius-lg);
+    }
+
+    /* Form improvements */
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .form-group label {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-md);
+        border-width: 1px;
+    }
+
+    .form-group textarea {
+        rows: 3;
+    }
+
+    /* Modal improvements */
     .modal-content {
-        margin: 5% auto;
+        margin: 2% auto;
+        width: 98%;
+        max-width: 350px;
+        border-radius: var(--radius-lg);
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: var(--spacing-md) var(--spacing-md) 0;
+    }
+
+    .modal-header h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .close {
+        font-size: 1.5rem;
+    }
+
+    .auth-form,
+    .hackathon-reg-form {
+        padding: 0 var(--spacing-md) var(--spacing-md);
+    }
+
+    .wide-modal {
+        max-width: 98%;
+    }
+
+    .form-section h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Button improvements */
+    .btn-hackathon {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+        margin-top: var(--spacing-md);
+        border-radius: var(--radius-md);
+    }
+
+    .btn-auth {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-md);
+    }
+
+    .btn-google {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-md);
+    }
+
+    .btn-primary {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-md);
+    }
+
+    /* Footer improvements */
+    .footer {
+        padding: var(--spacing-xl) 0 var(--spacing-md);
+    }
+
+    .footer-content {
+        gap: var(--spacing-lg);
+    }
+
+    .footer-section {
+        padding: 0 var(--spacing-md);
+    }
+
+    .footer-logo {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .footer-section h4 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .footer-section p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: var(--font-size-sm);
+    }
+
+    .newsletter-form {
+        max-width: 250px;
+        gap: var(--spacing-sm);
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-sm);
+        border-radius: var(--radius-md);
+    }
+
+    .footer-bottom {
+        padding-top: var(--spacing-md);
+        font-size: var(--font-size-xs);
+    }
+
+    /* Checkbox improvements */
+    .checkbox-label {
+        font-size: var(--font-size-sm);
+        gap: var(--spacing-xs);
+    }
+
+    .checkmark {
+        width: 16px;
+        height: 16px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .forgot-password {
+        font-size: var(--font-size-xs);
+    }
+
+    .auth-switch {
+        font-size: var(--font-size-sm);
+    }
+
+    .auth-divider {
+        margin: var(--spacing-md) 0;
+    }
+
+    .auth-divider span {
+        font-size: var(--font-size-sm);
+        padding: 0 var(--spacing-md);
     }
 }
 
@@ -1568,4 +2017,63 @@ select:focus,
 textarea:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Mobile touch feedback */
+@media (hover: none) and (pointer: coarse) {
+    button:active,
+    .nav-link:active,
+    .project-card:active,
+    .about-card:active,
+    .hackathon-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* Remove hover effects on touch devices */
+    button:hover,
+    .nav-link:hover,
+    .project-card:hover,
+    .about-card:hover,
+    .hackathon-card:hover {
+        transform: none;
+    }
+
+    /* Enhanced touch targets */
+    .nav-toggle {
+        padding: var(--spacing-md);
+        margin: -var(--spacing-md);
+    }
+
+    /* Better mobile form styling */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+}
+
+/* Mobile landscape improvements */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 60px var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+    }
+
+    .hero-visual {
+        height: 200px;
+    }
+
+    section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .nav-menu {
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
 }
