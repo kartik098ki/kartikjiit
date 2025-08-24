@@ -1111,79 +1111,62 @@ nav.scrolled {
     background: linear-gradient(180deg, var(--dark) 0%, rgba(10, 14, 39, 0.8) 100%);
     position: relative;
 }
-.activities-showcase {
+.activities-album {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: center;
 }
-.activities-image-container {
+.album-item {
     position: relative;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.3);
     transition: all 0.3s ease;
+    height: 300px;
 }
-.activities-image-container:hover {
+.album-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 86, 179, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.5);
 }
-.activities-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-.activities-image-container:hover .activities-image {
-    transform: scale(1.05);
-}
-.activities-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.album-image-container {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.4));
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    overflow: hidden;
 }
-.activities-image-container:hover .activities-overlay {
-    opacity: 0.9;
+.album-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
-.activities-overlay-content {
+.album-item:hover .album-image {
+    transform: scale(1.05);
+}
+.album-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.4) 70%, transparent);
     color: white;
-    z-index: 2;
+    transition: all 0.3s ease;
 }
-.activities-overlay-content h3 {
+.album-item:hover .album-overlay {
+    background: linear-gradient(to top, rgba(0, 86, 179, 0.95), rgba(0, 86, 179, 0.5) 70%, transparent);
+}
+.album-overlay-content h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-transform: uppercase;
 }
-.activities-overlay-content p {
+.album-overlay-content p {
     font-size: 16px;
-    opacity: 0.9;
-}
-.activities-description {
-    padding: 20px;
-}
-.activities-description h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--primary);
-}
-.activities-description p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
     opacity: 0.9;
 }
 /* Enhanced Events Section */
@@ -2606,46 +2589,62 @@ footer {
     padding: 80px 20px;
     max-width: 1000px;
     margin: 0 auto;
+}
+.updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.update-card {
+    display: flex;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.update-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.3);
+    border-color: var(--primary);
+}
+.update-date {
+    background: var(--gradient);
+    color: white;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
-}
-.coming-soon-section {
+    min-width: 120px;
     text-align: center;
-    max-width: 600px;
 }
-.coming-soon-section .coming-soon-icon {
-    width: 120px;
-    height: 120px;
-    background: var(--gradient);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    color: white;
-    margin: 0 auto 40px;
-    animation: pulse 2s infinite;
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.5);
-}
-.coming-soon-section .coming-soon-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
+.update-day {
+    font-size: 36px;
     font-weight: 800;
-    margin-bottom: 20px;
-    background: linear-gradient(to right, #ffffff, #e0e0e0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    line-height: 1;
 }
-.coming-soon-section .coming-soon-message {
-    font-size: 1.5rem;
+.update-month {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.update-content {
+    padding: 30px;
+    flex: 1;
+}
+.update-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+.update-description {
+    font-size: 18px;
     line-height: 1.6;
-    opacity: 0.9;
+    color: var(--text-light);
 }
 /* Enhanced About Page Styles */
 .about-page {
@@ -3177,13 +3176,13 @@ footer {
     }
     
     /* What We Do Section Responsive */
-    .activities-showcase {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .activities-album {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     
-    .activities-image-container {
-        margin-bottom: 20px;
+    .album-item {
+        height: 250px;
     }
 }
 @media (max-width: 768px) {
@@ -3843,13 +3842,41 @@ footer {
         animation: twinkle 10s infinite;
     }
     
-    /* Updates page coming soon section */
-    .coming-soon-section .coming-soon-title {
-        font-size: 2.5rem;
+    /* Updates page updates list for mobile */
+    .updates-list {
+        gap: 20px;
     }
     
-    .coming-soon-section .coming-soon-message {
-        font-size: 1.2rem;
+    .update-card {
+        flex-direction: column;
+    }
+    
+    .update-date {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px;
+        min-width: auto;
+    }
+    
+    .update-day {
+        font-size: 24px;
+    }
+    
+    .update-month {
+        font-size: 16px;
+    }
+    
+    .update-content {
+        padding: 20px;
+    }
+    
+    .update-title {
+        font-size: 20px;
+    }
+    
+    .update-description {
+        font-size: 16px;
     }
     
     /* Center text in hero banners for mobile */
@@ -3998,6 +4025,24 @@ footer {
     .gallery-lightbox-next {
         width: 40px;
         height: 40px;
+    }
+    
+    /* What We Do Section for mobile */
+    .activities-album {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .album-item {
+        height: 250px;
+    }
+    
+    .album-overlay-content h3 {
+        font-size: 20px;
+    }
+    
+    .album-overlay-content p {
+        font-size: 14px;
     }
 }
 @media (max-width: 480px) {
@@ -4415,19 +4460,33 @@ footer {
         font-size: 0.9rem;
     }
     
-    /* Updates page coming soon section for very small screens */
-    .coming-soon-section .coming-soon-icon {
-        width: 100px;
-        height: 100px;
-        font-size: 48px;
+    /* Updates page update cards for very small screens */
+    .update-card {
+        padding: 15px;
     }
     
-    .coming-soon-section .coming-soon-title {
-        font-size: 2rem;
+    .update-date {
+        padding: 10px;
     }
     
-    .coming-soon-section .coming-soon-message {
-        font-size: 1rem;
+    .update-day {
+        font-size: 20px;
+    }
+    
+    .update-month {
+        font-size: 14px;
+    }
+    
+    .update-content {
+        padding: 15px;
+    }
+    
+    .update-title {
+        font-size: 18px;
+    }
+    
+    .update-description {
+        font-size: 14px;
     }
     
     /* Ensure text is centered in hero banners for very small screens */
@@ -4535,20 +4594,20 @@ footer {
     }
     
     /* What We Do Section for very small screens */
-    .activities-showcase {
+    .activities-album {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 15px;
     }
     
-    .activities-image-container {
-        margin-bottom: 20px;
+    .album-item {
+        height: 200px;
     }
     
-    .activities-description h3 {
-        font-size: 20px;
+    .album-overlay-content h3 {
+        font-size: 18px;
     }
     
-    .activities-description p {
-        font-size: 14px;
+    .album-overlay-content p {
+        font-size: 12px;
     }
 }
