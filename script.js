@@ -830,13 +830,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // What We Do section buttons
-    document.querySelectorAll('.whatwedo-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            showSimpleComingSoonModal();
-        });
-    });
-    
     // Initialize page
     showMainContent();
 });
