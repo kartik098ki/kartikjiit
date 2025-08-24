@@ -176,6 +176,44 @@ document.addEventListener('DOMContentLoaded', () => {
         autoRotateY = targetY / 30;
     });
     
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    aboutVisual.addEventListener('touchstart', (e) => {
+        isAutoRotating = false;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    });
+    
+    aboutVisual.addEventListener('touchmove', (e) => {
+        if (!isAutoRotating) {
+            const rect = aboutVisual.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+            
+            // Calculate the touch position relative to the center
+            const touchDiffX = (touchX - centerX) / (rect.width / 2);
+            const touchDiffY = (touchY - centerY) / (rect.height / 2);
+            
+            // Apply the rotation to the cube
+            targetX = touchDiffY * 30; // Max rotation of 30 degrees
+            targetY = touchDiffX * 30; // Max rotation of 30 degrees
+            
+            aboutCube.style.transform = `rotateX(${targetX}deg) rotateY(${targetY}deg)`;
+        }
+    });
+    
+    aboutVisual.addEventListener('touchend', () => {
+        isAutoRotating = true;
+        // Reset auto-rotation values to current position for smooth transition
+        autoRotateX = targetX / 30;
+        autoRotateY = targetY / 30;
+    });
+    
     // Enhanced Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
