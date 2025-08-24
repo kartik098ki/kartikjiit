@@ -1111,111 +1111,80 @@ nav.scrolled {
     background: linear-gradient(180deg, var(--dark) 0%, rgba(10, 14, 39, 0.8) 100%);
     position: relative;
 }
-.whatwedo-grid {
+.activities-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
 }
-.whatwedo-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+.activities-image-container {
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.3);
     transition: all 0.3s ease;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(10px);
 }
-.whatwedo-card::before {
-    content: '';
+.activities-image-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 86, 179, 0.5);
+}
+.activities-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.activities-image-container:hover .activities-image {
+    transform: scale(1.05);
+}
+.activities-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient);
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: -1;
-}
-.whatwedo-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.3);
-    border-color: var(--primary);
-}
-.whatwedo-card:hover::before {
-    opacity: 0.1;
-}
-.whatwedo-image {
-    height: 200px;
-    overflow: hidden;
-}
-.whatwedo-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.whatwedo-card:hover .whatwedo-image img {
-    transform: scale(1.1);
-}
-.whatwedo-content {
+    background: linear-gradient(to top, rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.4));
+    display: flex;
+    align-items: flex-end;
     padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
-.whatwedo-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    background: var(--gradient);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+.activities-image-container:hover .activities-overlay {
+    opacity: 0.9;
+}
+.activities-overlay-content {
     color: white;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
+    z-index: 2;
 }
-.whatwedo-card:hover .whatwedo-icon {
-    transform: rotateY(180deg) scale(1.1);
+.activities-overlay-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
-.whatwedo-title {
+.activities-overlay-content p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+.activities-description {
+    padding: 20px;
+}
+.activities-description h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--light);
-}
-.whatwedo-description {
-    opacity: 0.8;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-.whatwedo-btn {
-    padding: 12px 25px;
-    background: white;
     color: var(--primary);
-    border: none;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    align-self: flex-start;
 }
-.whatwedo-btn:hover {
-    background: var(--light);
-    transform: scale(1.05);
+.activities-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
 }
 /* Enhanced Events Section */
 .events {
@@ -1299,7 +1268,6 @@ nav.scrolled {
     margin-bottom: 20px;
     line-height: 1.6;
 }
-
 /* Event Countdown Section */
 .event-countdown-section {
     background: var(--glass-bg);
@@ -3106,86 +3074,6 @@ footer {
     font-size: 1rem;
     opacity: 0.8;
 }
-.tracks-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-.track-item {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-.track-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.3);
-    border-color: var(--primary);
-}
-.track-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: white;
-    margin: 0 auto 20px;
-    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
-}
-.track-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--light);
-}
-.track-desc {
-    font-size: 1rem;
-    opacity: 0.8;
-}
-.criteria-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-.criteria-item {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-.criteria-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2);
-    border-color: var(--primary);
-}
-.criteria-weight {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-.criteria-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--light);
-}
-.criteria-desc {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
 .register-container {
     text-align: center;
 }
@@ -3280,14 +3168,6 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .tracks-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .criteria-container {
-        grid-template-columns: 1fr;
-    }
-    
     .register-actions {
         flex-direction: column;
     }
@@ -3297,25 +3177,13 @@ footer {
     }
     
     /* What We Do Section Responsive */
-    .whatwedo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
+    .activities-showcase {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
     
-    .whatwedo-image {
-        height: 150px;
-    }
-    
-    .whatwedo-content {
-        padding: 20px;
-    }
-    
-    .whatwedo-title {
-        font-size: 20px;
-    }
-    
-    .whatwedo-description {
-        font-size: 14px;
+    .activities-image-container {
+        margin-bottom: 20px;
     }
 }
 @media (max-width: 768px) {
@@ -3545,13 +3413,23 @@ footer {
         font-size: 12px;
     }
     
+    /* Enhanced Footer for Mobile */
+    footer {
+        padding: 40px 15px 20px;
+    }
+    
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 30px;
+        text-align: center;
     }
     
     .footer-column {
         margin-bottom: 20px;
+        padding: 20px;
+        background: rgba(0, 86, 179, 0.05);
+        border-radius: 15px;
+        border: 1px solid rgba(0, 86, 179, 0.1);
     }
     
     .footer-column h3 {
@@ -3559,12 +3437,41 @@ footer {
         margin-bottom: 15px;
     }
     
+    .footer-logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-description {
+        margin-bottom: 20px;
+    }
+    
+    .contact-info {
+        align-items: center;
+    }
+    
     .contact-item {
-        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
     
     .contact-item p {
         font-size: 14px;
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .footer-links li {
+        margin: 0;
     }
     
     .footer-links a {
@@ -3572,7 +3479,8 @@ footer {
     }
     
     .social-icons {
-        gap: 12px;
+        justify-content: center;
+        margin-top: 15px;
     }
     
     .social-icons a {
@@ -4024,26 +3932,6 @@ footer {
         font-size: 1.2rem;
     }
     
-    .track-title {
-        font-size: 1.2rem;
-    }
-    
-    .track-desc {
-        font-size: 0.9rem;
-    }
-    
-    .criteria-weight {
-        font-size: 1.2rem;
-    }
-    
-    .criteria-title {
-        font-size: 1rem;
-    }
-    
-    .criteria-desc {
-        font-size: 0.8rem;
-    }
-    
     .register-info {
         font-size: 1rem;
     }
@@ -4111,35 +3999,6 @@ footer {
         width: 40px;
         height: 40px;
     }
-    
-    /* What We Do Section Mobile */
-    .whatwedo-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .whatwedo-card {
-        flex-direction: row;
-        height: auto;
-    }
-    
-    .whatwedo-image {
-        width: 40%;
-        height: auto;
-    }
-    
-    .whatwedo-content {
-        width: 60%;
-        padding: 20px;
-    }
-    
-    .whatwedo-title {
-        font-size: 18px;
-    }
-    
-    .whatwedo-description {
-        font-size: 14px;
-    }
 }
 @media (max-width: 480px) {
     nav {
@@ -4203,12 +4062,6 @@ footer {
         font-size: 28px;
     }
     
-    .whatwedo-card,
-    .team-member,
-    .gallery-item {
-        padding: 30px 20px;
-    }
-    
     .about-cube {
         width: 200px;
         height: 200px;
@@ -4228,11 +4081,16 @@ footer {
     .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
     
     footer {
-        padding: 40px 10px 15px;
+        padding: 30px 10px 15px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .footer-column {
-        padding: 20px;
+        padding: 15px;
     }
     
     .footer-column h3 {
@@ -4629,32 +4487,6 @@ footer {
         font-size: 1rem;
     }
     
-    .track-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-    }
-    
-    .track-title {
-        font-size: 1rem;
-    }
-    
-    .track-desc {
-        font-size: 0.8rem;
-    }
-    
-    .criteria-weight {
-        font-size: 1rem;
-    }
-    
-    .criteria-title {
-        font-size: 0.9rem;
-    }
-    
-    .criteria-desc {
-        font-size: 0.7rem;
-    }
-    
     .register-info {
         font-size: 0.9rem;
     }
@@ -4703,16 +4535,20 @@ footer {
     }
     
     /* What We Do Section for very small screens */
-    .whatwedo-card {
-        flex-direction: column;
+    .activities-showcase {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
     
-    .whatwedo-image {
-        width: 100%;
-        height: 150px;
+    .activities-image-container {
+        margin-bottom: 20px;
     }
     
-    .whatwedo-content {
-        width: 100%;
+    .activities-description h3 {
+        font-size: 20px;
+    }
+    
+    .activities-description p {
+        font-size: 14px;
     }
 }
