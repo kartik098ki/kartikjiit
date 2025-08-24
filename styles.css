@@ -1122,16 +1122,11 @@ nav.scrolled {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
+    overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-    height: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     backdrop-filter: blur(10px);
 }
 .whatwedo-card::before {
@@ -1154,16 +1149,35 @@ nav.scrolled {
 .whatwedo-card:hover::before {
     opacity: 0.1;
 }
+.whatwedo-image {
+    height: 200px;
+    overflow: hidden;
+}
+.whatwedo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.whatwedo-card:hover .whatwedo-image img {
+    transform: scale(1.1);
+}
+.whatwedo-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 .whatwedo-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 25px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
     background: var(--gradient);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    font-size: 24px;
     color: white;
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
@@ -1182,23 +1196,7 @@ nav.scrolled {
     opacity: 0.8;
     line-height: 1.8;
     margin-bottom: 20px;
-}
-.whatwedo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 86, 179, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-    border-radius: 20px;
-}
-.whatwedo-card:hover .whatwedo-overlay {
-    opacity: 1;
+    flex-grow: 1;
 }
 .whatwedo-btn {
     padding: 12px 25px;
@@ -1213,6 +1211,7 @@ nav.scrolled {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 14px;
+    align-self: flex-start;
 }
 .whatwedo-btn:hover {
     background: var(--light);
@@ -1300,19 +1299,27 @@ nav.scrolled {
     margin-bottom: 20px;
     line-height: 1.6;
 }
-/* Event Countdown Timer */
-.event-countdown {
-    margin: 20px 0;
-    padding: 20px;
-    background: rgba(0, 86, 179, 0.1);
-    border-radius: 15px;
+
+/* Event Countdown Section */
+.event-countdown-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
     text-align: center;
-    border: 1px solid rgba(0, 86, 179, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.event-countdown-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.3);
+    border-color: var(--primary);
 }
 .countdown-title {
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: var(--light);
 }
 .countdown-highlight {
@@ -3288,6 +3295,28 @@ footer {
     .register-actions .btn {
         width: 100%;
     }
+    
+    /* What We Do Section Responsive */
+    .whatwedo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .whatwedo-image {
+        height: 150px;
+    }
+    
+    .whatwedo-content {
+        padding: 20px;
+    }
+    
+    .whatwedo-title {
+        font-size: 20px;
+    }
+    
+    .whatwedo-description {
+        font-size: 14px;
+    }
 }
 @media (max-width: 768px) {
     /* Sexy Mobile Header */
@@ -3490,9 +3519,9 @@ footer {
     }
     
     /* Event Countdown Timer Mobile */
-    .event-countdown {
-        margin: 15px 0;
-        padding: 15px;
+    .event-countdown-section {
+        margin: 20px 0;
+        padding: 20px;
     }
     
     .countdown-title {
@@ -4082,6 +4111,35 @@ footer {
         width: 40px;
         height: 40px;
     }
+    
+    /* What We Do Section Mobile */
+    .whatwedo-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .whatwedo-card {
+        flex-direction: row;
+        height: auto;
+    }
+    
+    .whatwedo-image {
+        width: 40%;
+        height: auto;
+    }
+    
+    .whatwedo-content {
+        width: 60%;
+        padding: 20px;
+    }
+    
+    .whatwedo-title {
+        font-size: 18px;
+    }
+    
+    .whatwedo-description {
+        font-size: 14px;
+    }
 }
 @media (max-width: 480px) {
     nav {
@@ -4451,7 +4509,7 @@ footer {
     }
     
     /* Event Countdown Timer for very small screens */
-    .event-countdown {
+    .event-countdown-section {
         padding: 10px;
     }
     
@@ -4642,5 +4700,19 @@ footer {
     .gallery-lightbox-next {
         width: 35px;
         height: 35px;
+    }
+    
+    /* What We Do Section for very small screens */
+    .whatwedo-card {
+        flex-direction: column;
+    }
+    
+    .whatwedo-image {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .whatwedo-content {
+        width: 100%;
     }
 }
