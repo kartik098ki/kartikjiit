@@ -1111,64 +1111,67 @@ nav.scrolled {
     background: linear-gradient(180deg, var(--dark) 0%, rgba(10, 14, 39, 0.8) 100%);
     position: relative;
 }
-.activities-album {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+
+/* What We Do Description */
+.whatwedo-description {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-light);
+    opacity: 0.9;
+}
+
+/* What We Do Carousel */
+.whatwedo-carousel-container {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
-}
-.album-item {
-    position: relative;
-    border-radius: 15px;
     overflow: hidden;
+    border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0, 86, 179, 0.3);
-    transition: all 0.3s ease;
-    height: 300px;
 }
-.album-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.5);
+
+.whatwedo-carousel-track {
+    display: flex;
+    animation: carouselSlide 20s linear infinite;
 }
-.album-image-container {
+
+.whatwedo-carousel-slide {
+    flex: 0 0 100%;
     position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
-.album-image {
+
+.whatwedo-carousel-slide img {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
-.album-item:hover .album-image {
-    transform: scale(1.05);
-}
-.album-overlay {
+
+.carousel-caption {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 20px;
-    background: linear-gradient(to top, rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.4) 70%, transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: white;
-    transition: all 0.3s ease;
-}
-.album-item:hover .album-overlay {
-    background: linear-gradient(to top, rgba(0, 86, 179, 0.95), rgba(0, 86, 179, 0.5) 70%, transparent);
-}
-.album-overlay-content h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
 }
-.album-overlay-content p {
-    font-size: 16px;
-    opacity: 0.9;
+
+@keyframes carouselSlide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
+
 /* Enhanced Events Section */
 .events {
     padding: 100px 50px;
@@ -2394,6 +2397,7 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     height: 300px;
+    cursor: pointer;
 }
 .gallery-item:hover {
     transform: translateY(-10px);
@@ -2441,24 +2445,6 @@ footer {
     margin-bottom: 15px;
     color: white;
 }
-.gallery-view-btn {
-    padding: 10px 20px;
-    background: white;
-    color: var(--primary);
-    border: none;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-}
-.gallery-view-btn:hover {
-    background: var(--light);
-    transform: scale(1.05);
-}
 /* Gallery Lightbox Modal */
 .gallery-lightbox-modal {
     display: none;
@@ -2479,16 +2465,21 @@ footer {
 .gallery-lightbox-content {
     position: relative;
     max-width: 90%;
-    max-height: 90%;
+    max-height: 90vh;
 }
 .gallery-lightbox-image-container {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
 }
 .gallery-lightbox-image {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 100%;
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
 }
 .gallery-lightbox-close {
     position: absolute;
@@ -3176,13 +3167,12 @@ footer {
     }
     
     /* What We Do Section Responsive */
-    .activities-album {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .whatwedo-carousel-container {
+        max-width: 90%;
     }
     
-    .album-item {
-        height: 250px;
+    .whatwedo-carousel-slide img {
+        height: 350px;
     }
 }
 @media (max-width: 768px) {
@@ -3490,7 +3480,7 @@ footer {
     
     .copyright {
         margin-top: 20px;
-        font-size: 12px;
+        font-size: 14px;
     }
     
     .coming-soon-content {
@@ -3966,6 +3956,7 @@ footer {
     /* Ride Hack Popup Modal Mobile */
     .ridehack-popup-content {
         padding: 30px 20px;
+        max-width: 90%;
     }
     
     .ridehack-popup-title {
@@ -4017,6 +4008,10 @@ footer {
         max-width: 95%;
     }
     
+    .gallery-lightbox-image-container {
+        height: 70vh;
+    }
+    
     .gallery-lightbox-nav {
         padding: 0 10px;
     }
@@ -4028,21 +4023,17 @@ footer {
     }
     
     /* What We Do Section for mobile */
-    .activities-album {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .whatwedo-carousel-container {
+        max-width: 95%;
     }
     
-    .album-item {
+    .whatwedo-carousel-slide img {
         height: 250px;
     }
     
-    .album-overlay-content h3 {
-        font-size: 20px;
-    }
-    
-    .album-overlay-content p {
-        font-size: 14px;
+    .carousel-caption {
+        font-size: 16px;
+        padding: 15px;
     }
 }
 @media (max-width: 480px) {
@@ -4553,6 +4544,7 @@ footer {
     /* Ride Hack Popup Modal for very small screens */
     .ridehack-popup-content {
         padding: 20px 15px;
+        max-width: 95%;
     }
     
     .ridehack-popup-title {
@@ -4583,6 +4575,10 @@ footer {
         max-width: 98%;
     }
     
+    .gallery-lightbox-image-container {
+        height: 60vh;
+    }
+    
     .gallery-lightbox-nav {
         padding: 0 5px;
     }
@@ -4594,20 +4590,16 @@ footer {
     }
     
     /* What We Do Section for very small screens */
-    .activities-album {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .whatwedo-carousel-container {
+        max-width: 95%;
     }
     
-    .album-item {
+    .whatwedo-carousel-slide img {
         height: 200px;
     }
     
-    .album-overlay-content h3 {
-        font-size: 18px;
-    }
-    
-    .album-overlay-content p {
-        font-size: 12px;
+    .carousel-caption {
+        font-size: 14px;
+        padding: 10px;
     }
 }
