@@ -798,9 +798,9 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryLightboxImage.src = galleryImages[currentImageIndex];
     }
     
-    // Add event listeners to gallery view buttons
-    document.querySelectorAll('.gallery-view-btn').forEach((btn, index) => {
-        btn.addEventListener('click', () => {
+    // Add event listeners to gallery items (click on image instead of view button)
+    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+        item.addEventListener('click', () => {
             openGalleryLightbox(index);
         });
     });
